@@ -1,0 +1,30 @@
+#include <iostream>
+
+struct KOIRA
+{
+  int ika;
+  char nimi[20];
+};
+
+int main(){
+const int MAX_KOIRA = 5;
+KOIRA koira[MAX_KOIRA];
+
+for(int i = 0; i < MAX_KOIRA; i++)
+{
+  std::cout << "Anna " << i + 1 << " nimi ja ika:" << std::endl;
+  std::cin >> koira[i].nimi >> koira[i].ika;
+}
+for(int i = 0; i < MAX_KOIRA - 1; i++)
+  for(int j = i + 1; j < MAX_KOIRA; j++)
+  if(strcmp(koira[i].nimi ,koira[j].nimi) > 0)
+  {
+    KOIRA temp = koira[i];
+    koira[i] = koira[j];
+    koira[j] = temp;
+  }
+  for (int i = 0; i < MAX_KOIRA; i++)
+  {
+    std::cout << "koira nro " << i+1 << " " << koira[i].nimi << " " << koira[i].ika << std::endl;
+  }
+}
